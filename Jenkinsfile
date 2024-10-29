@@ -1,28 +1,24 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Checkout') {
             steps {
-                script {
-                    echo 'Building...'
-                    // Add your build commands here
-                }
+                git url: 'https://github.com/Karthik-Test-Account/jenkins-demo.git', branch: 'main'
             }
         }
-        stage('Test') {
+        stage('Build Job1') {
             steps {
-                script {
-                    echo 'Testing...'
-                    // Add your test commands here
-                }
+                sh 'python3 hello.py'
             }
         }
-        stage('Deploy') {
+        stage('Build Job2') {
             steps {
-                script {
-                    echo 'Deploying...'
-                    // Add your deployment commands here
-                }
+                sh 'python3 pip.py'
+            }
+        }
+        stage('Build Job3') {
+            steps {
+                sh 'python3 sample.py'
             }
         }
     }
