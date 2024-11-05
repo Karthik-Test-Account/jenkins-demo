@@ -1,0 +1,1 @@
+print('free style project 1')
